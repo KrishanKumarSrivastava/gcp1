@@ -29,6 +29,7 @@ return [
         'image' => 'Images',
         'collections' => 'Product collections',
         'labels' => 'Labels',
+        'vehicle_variants' => 'Vehicle Variants',
         'price_sale' => 'Price sale',
         'product_type' => [
             'title' => 'Product type',

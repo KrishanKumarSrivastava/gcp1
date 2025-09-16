@@ -47,5 +47,25 @@ AdminHelper::registerRoutes(function (): void {
             return BaseHttpResponse::make()
                 ->setData($collections);
         })->name('search-collections');
+
+        Route::get('vehicle-models', [
+            'as' => 'vehicle-models',
+            'uses' => 'VehicleAjaxController@getModels',
+        ]);
+
+        Route::get('vehicle-years', [
+            'as' => 'vehicle-years',
+            'uses' => 'VehicleAjaxController@getYears',
+        ]);
+
+        Route::get('vehicle-variants', [
+            'as' => 'vehicle-variants',
+            'uses' => 'VehicleAjaxController@getVariants',
+        ]);
+
+        Route::get('vehicle-makes', [
+            'as' => 'vehicle-makes',
+            'uses' => 'VehicleAjaxController@getMakes',
+        ]);
     });
 });

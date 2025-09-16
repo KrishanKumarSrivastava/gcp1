@@ -108,5 +108,35 @@ Theme::registerRoutes(function (): void {
             'uses' => 'ReviewController@ajaxReviews',
             'as' => 'public.ajax.reviews',
         ])->wherePrimaryKey();
+
+        Route::get('ajax/categories-dropdown', [
+            'uses' => 'PublicAjaxController@ajaxGetCategoriesDropdown',
+            'as' => 'public.ajax.categories-dropdown',
+        ]);
+
+        Route::get('ajax/vehicle-makes', [
+            'uses' => 'PublicAjaxController@ajaxGetVehicleMakes',
+            'as' => 'public.ajax.vehicle-makes',
+        ]);
+
+        Route::get('ajax/vehicle-models', [
+            'uses' => 'PublicAjaxController@ajaxGetVehicleModels',
+            'as' => 'public.ajax.vehicle-models',
+        ]);
+
+        Route::get('ajax/vehicle-years', [
+            'uses' => 'PublicAjaxController@ajaxGetVehicleYears',
+            'as' => 'public.ajax.vehicle-years',
+        ]);
+
+        Route::get('ajax/vehicle-variants', [
+            'uses' => 'PublicAjaxController@ajaxGetVehicleVariants',
+            'as' => 'public.ajax.vehicle-variants',
+        ]);
+
+        Route::get('ajax/search-products-by-vehicle', [
+            'uses' => 'PublicAjaxController@ajaxSearchProductsByVehicle',
+            'as' => 'public.ajax.search-products-by-vehicle',
+        ]);
     });
 });
