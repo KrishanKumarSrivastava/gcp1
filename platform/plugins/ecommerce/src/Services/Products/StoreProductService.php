@@ -114,6 +114,8 @@ class StoreProductService
 
         $product->taxes()->sync($request->input('taxes', []));
 
+        $product->vehicleVariants()->sync($request->input('vehicle_variants', []));
+
         if ($request->has('related_products')) {
             $product->products()->detach();
 

@@ -144,6 +144,26 @@ AdminHelper::registerRoutes(function (): void {
                 ->parameters(['' => 'product_attribute_set']);
         });
 
+        Route::group(['prefix' => 'vehicle-makes', 'as' => 'vehicle-makes.'], function (): void {
+            Route::resource('', 'VehicleMakeController')
+                ->parameters(['' => 'vehicle_make']);
+        });
+
+        Route::group(['prefix' => 'vehicle-models', 'as' => 'vehicle-models.'], function (): void {
+            Route::resource('', 'VehicleModelController')
+                ->parameters(['' => 'vehicle_model']);
+        });
+
+        Route::group(['prefix' => 'vehicle-years', 'as' => 'vehicle-years.'], function (): void {
+            Route::resource('', 'VehicleYearController')
+                ->parameters(['' => 'vehicle_year']);
+        });
+
+        Route::group(['prefix' => 'vehicle-variants', 'as' => 'vehicle-variants.'], function (): void {
+            Route::resource('', 'VehicleVariantController')
+                ->parameters(['' => 'vehicle_variant']);
+        });
+
         Route::group(['prefix' => 'reports', 'as' => 'ecommerce.report.'], function (): void {
             Route::get('', [
                 'as' => 'index',

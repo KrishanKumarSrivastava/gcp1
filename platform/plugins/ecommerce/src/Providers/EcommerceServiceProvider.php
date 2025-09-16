@@ -872,6 +872,42 @@ class EcommerceServiceProvider extends ServiceProvider
                     'permissions' => ['brands.index'],
                 ])
                 ->registerItem([
+                    'id' => 'cms-plugins-vehicle-makes',
+                    'priority' => 155,
+                    'parent_id' => 'cms-plugins-ecommerce',
+                    'name' => 'plugins/ecommerce::vehicle-makes.name',
+                    'icon' => 'ti ti-car',
+                    'url' => fn () => route('vehicle-makes.index'),
+                    'permissions' => ['vehicle-makes.index'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-vehicle-models',
+                    'priority' => 156,
+                    'parent_id' => 'cms-plugins-ecommerce',
+                    'name' => 'plugins/ecommerce::vehicle-models.name',
+                    'icon' => 'ti ti-car-garage',
+                    'url' => fn () => route('vehicle-models.index'),
+                    'permissions' => ['vehicle-models.index'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-vehicle-years',
+                    'priority' => 157,
+                    'parent_id' => 'cms-plugins-ecommerce',
+                    'name' => 'plugins/ecommerce::vehicle-years.name',
+                    'icon' => 'ti ti-calendar',
+                    'url' => fn () => route('vehicle-years.index'),
+                    'permissions' => ['vehicle-years.index'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-vehicle-variants',
+                    'priority' => 158,
+                    'parent_id' => 'cms-plugins-ecommerce',
+                    'name' => 'plugins/ecommerce::vehicle-variants.name',
+                    'icon' => 'ti ti-settings',
+                    'url' => fn () => route('vehicle-variants.index'),
+                    'permissions' => ['vehicle-variants.index'],
+                ])
+                ->registerItem([
                     'id' => 'cms-ecommerce-review',
                     'priority' => 160,
                     'parent_id' => 'cms-plugins-ecommerce',

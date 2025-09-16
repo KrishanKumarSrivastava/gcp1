@@ -39,6 +39,7 @@ use Botble\Ecommerce\Models\ProductLabel;
 use Botble\Ecommerce\Models\ProductVariation;
 use Botble\Ecommerce\Models\SpecificationTable;
 use Botble\Ecommerce\Models\Tax;
+use Botble\Ecommerce\Models\VehicleVariant;
 use Botble\Ecommerce\Tables\ProductVariationTable;
 
 class ProductForm extends FormAbstract
@@ -184,6 +185,11 @@ class ProductForm extends FormAbstract
                         'value' => old('product_labels', $selectedProductLabels),
                     ]);
             })
+            ->add('vehicle_variants[]', MultiCheckListField::class, [
+                'label' => trans('plugins/ecommerce::products.form.vehicle_variants'),
+                'choices' => $this->getVehicleVariantChoices(),
+                'value' => old('vehicle_variants', $this->getSelectedVehicleVariants()),
+            ])
             ->when(EcommerceHelper::isTaxEnabled(), function (): void {
                 $taxes = Tax::query()->oldest('percentage')->get()->pluck('title_with_percentage', 'id')->all();
 
@@ -385,5 +391,32 @@ class ProductForm extends FormAbstract
             ])
             ->addStylesDirectly('vendor/core/plugins/ecommerce/css/ecommerce.css')
             ->addScriptsDirectly('vendor/core/plugins/ecommerce/js/edit-product.js');
+    }
+
+    protected function getVehicleVariantChoices(): array
+    {
+        return VehicleVariant::query()
+            ->with(['year.model.make'])
+            ->published()
+            ->ordered()
+            ->get()
+            ->mapWithKeys(function ($variant) {
+                return [$variant->id => $variant->full_name];
+            })
+            ->all();
+    }
+
+    protected function getSelectedVehicleVariants(): array
+    {
+        /**
+         * @var Product $product
+         */
+        $product = $this->getModel();
+
+        if (!$product || !$product->getKey()) {
+            return [];
+        }
+
+        return $product->vehicleVariants()->pluck('variant_id')->all();
     }
 }
