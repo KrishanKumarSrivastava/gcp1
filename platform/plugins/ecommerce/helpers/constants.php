@@ -211,3 +211,19 @@ if (! defined('INVOICE_PAYMENT_CREATED')) {
 if (! defined('ACTION_AFTER_ORDER_RETURN_STATUS_COMPLETED')) {
     define('ACTION_AFTER_ORDER_RETURN_STATUS_COMPLETED', 'after_order_return_status_completed');
 }
+
+if (! defined('VEHICLE_MAKE_MODULE_SCREEN_NAME')) {
+    define('VEHICLE_MAKE_MODULE_SCREEN_NAME', 'vehicle-make');
+}
+
+if (! defined('VEHICLE_MODEL_MODULE_SCREEN_NAME')) {
+    define('VEHICLE_MODEL_MODULE_SCREEN_NAME', 'vehicle-model');
+}
+
+if (! defined('VEHICLE_YEAR_MODULE_SCREEN_NAME')) {
+    define('VEHICLE_YEAR_MODULE_SCREEN_NAME', 'vehicle-year');
+}
+
+if (! defined('VEHICLE_VARIANT_MODULE_SCREEN_NAME')) {
+    define('VEHICLE_VARIANT_MODULE_SCREEN_NAME', 'vehicle-variant');
+}

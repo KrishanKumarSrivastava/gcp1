@@ -218,6 +218,16 @@ class Product extends BaseModel
             ->withPivot(['price', 'price_type', 'apply_to_all_variations', 'is_variant']);
     }
 
+    public function vehicleVariants(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            VehicleVariant::class,
+            'ec_product_vehicle_variants',
+            'product_id',
+            'variant_id'
+        );
+    }
+
     public function upSales(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'ec_product_up_sale_relations', 'from_product_id', 'to_product_id');
